@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class User extends Model
 {
     //
+
+    protected $fillable = [
+        'username',
+        'password',
+        'name'
+    ];
+
     protected $table = "users";
     protected $primaryKey = 'id';
     protected $keyType = 'int';
