@@ -227,7 +227,14 @@
                         "application/json" : {
                             "schema" : {
                                 "type": "object",
-                                
+                                "properties": {
+                                    "name" : {
+                                        "type": "string"
+                                    },
+                                    "password" : {
+                                        "type": "string"
+                                    }
+                                }
                             }
                         }
                     }
@@ -267,7 +274,33 @@
         },
         "/api/users/logout" : {
             "delete" : {
-                "description" : "Logout current user"
+                "description" : "Logout current user",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header"
+                    }
+                ],
+                "responses": {
+                    "200" : {
+                        "description": "Success logout user",
+                        "content": {
+                            "application/json" : {
+                                "schema" : {
+                                    "type": "object",
+                                    "properties": {
+                                        "data" : {
+                                            "type": "boolean"
+                                        },
+                                        "errors" : {
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    } 
+                }
             }
         }
     }
